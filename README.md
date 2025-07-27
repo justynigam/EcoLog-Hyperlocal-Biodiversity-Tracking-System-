@@ -4,7 +4,7 @@ A full-stack web application for recording and sharing ecological observations. 
 
 Features
 📸 Upload photos of wildlife observations
-📍 Automatic geolocation tagging
+#📍 Automatic geolocation tagging
 🔍 Browse and filter observations
 📱 Responsive design for desktop and mobile
 📊 Admin dashboard for content management
@@ -61,23 +61,7 @@ Create a .env.local file in the frontend directory:
 
 bash
 NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000/api
-Project Structure
-citizen-science/
-├── backend/                  # Django backend
-│   ├── core/                 # Django project settings
-│   └── observations/         # Observations app
-│       ├── models.py         # Database models
-│       ├── serializers.py    # API serializers
-│       ├── views.py          # API views
-│       └── urls.py           # API endpoints
-│
-└── frontend/                 # Next.js frontend
-    ├── src/
-    │   ├── components/       # Reusable components
-    │   ├── pages/            # Application pages
-    │   └── store/            # State management
-    └── public/               # Static files
-Available Scripts
+
 Frontend
 npm run dev - Start development server
 npm run build - Build for production
