@@ -1,0 +1,25 @@
+{
+    "name": "EcoLog - Community Wildlife Observation",
+    "short_name": "EcoLog",
+    "description": "Track and document biodiversity in your community",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#16a34a",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "/eco192.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "/eco512.png", 
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
+    ]
+  }
+  
