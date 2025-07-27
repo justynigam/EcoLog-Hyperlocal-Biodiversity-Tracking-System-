@@ -8,6 +8,11 @@ Features
 🔍 Browse and filter observations
 📱 Responsive design for desktop and mobile
 📊 Admin dashboard for content management
+<img width="1917" height="780" alt="image" src="https://github.com/user-attachments/assets/1935f530-b369-4c7f-b230-92af91d65802" />
+<img width="1917" height="836" alt="image" src="https://github.com/user-attachments/assets/24d7d0ec-e893-4e48-9e48-b45d3024175d" />
+
+
+
 Tech Stack
 Frontend
 Next.js 14
