@@ -3,12 +3,15 @@ The platform's centralized database serves as a single source of truth, enabling
 A full-stack web application for recording and sharing ecological observations. This platform allows users to document wildlife sightings, track species, and contribute to citizen science efforts.
 
 Features
-📸 Upload photos of wildlife observations
-#📍 Automatic geolocation tagging
-🔍 Browse and filter observations
-📱 Responsive design for desktop and mobile
-📊 Admin dashboard for content management
-<img width="1917" height="780" alt="image" src="https://github.com/user-attachments/assets/1935f530-b369-4c7f-b230-92af91d65802" />
+### 📸 Upload photos of wildlife observations
+### 📍 Automatic geolocation tagging
+### 🔍 Browse and filter observations
+### 📱 Responsive design for desktop and mobile
+### 📊 Admin dashboard for content management
+
+# Images
+<img width="1911" height="924" alt="Screenshot 2025-07-27 221743" src="https://github.com/user-attachments/assets/1dae2a18-e993-4720-8bff-f8be52970588" />
+
 <img width="1917" height="836" alt="image" src="https://github.com/user-attachments/assets/24d7d0ec-e893-4e48-9e48-b45d3024175d" />
 
 
