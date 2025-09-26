@@ -2,24 +2,17 @@
 'use client'
 
 import { useAuth } from '@/contexts/AuthContext'
-import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
-import { User, Mail, Calendar, Award, Camera, MapPin, Loader2 } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { User, Mail, Calendar, Award, Camera, MapPin } from 'lucide-react'
+import { ProtectedRoute } from '@/components/auth/ProtectedRoute'
 
-export default function Profile() {
-  const { user, loading } = useAuth()
-  const router = useRouter()
+function ProfileContent() {
+  const { user } = useAuth()
   const [userStats, setUserStats] = useState({
     observations: 0,
     species: 0,
     contributions: 0
   })
-
-  useEffect(() => {
-    if (!loading && !user) {
-      router.push('/auth/login')
-    }
-  }, [user, loading, router])
 
   // Mock data for now - this would come from your backend
   useEffect(() => {
@@ -35,17 +28,7 @@ export default function Profile() {
     }
   }, [user])
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-[50vh]">
-        <Loader2 className="w-8 h-8 animate-spin text-primary-600" />
-      </div>
-    )
-  }
-
-  if (!user) {
-    return null // Will redirect to login
-  }
+  if (!user) return null
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -128,6 +111,14 @@ export default function Profile() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function Profile() {
+  return (
+    <ProtectedRoute>
+      <ProfileContent />
+    </ProtectedRoute>
   )
 }
   

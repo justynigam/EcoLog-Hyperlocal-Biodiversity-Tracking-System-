@@ -23,6 +23,9 @@ export default function Dashboard() {
     )
   }
 
+  // Ensure observations is always an array
+  const observationsList = Array.isArray(observations) ? observations : []
+
   return (
     <div className="space-y-8">
       {/* Header */}
@@ -44,19 +47,19 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-white rounded-lg shadow p-6 text-center">
           <div className="text-3xl font-bold text-primary-600">
-            {observations.length}
+            {observationsList.length}
           </div>
           <div className="text-gray-600">Total Observations</div>
         </div>
         <div className="bg-white rounded-lg shadow p-6 text-center">
           <div className="text-3xl font-bold text-primary-600">
-            {new Set(observations.map(obs => obs.species_name)).size}
+            {new Set(observationsList.map(obs => obs.species_name)).size}
           </div>
           <div className="text-gray-600">Species Documented</div>
         </div>
         <div className="bg-white rounded-lg shadow p-6 text-center">
           <div className="text-3xl font-bold text-primary-600">
-            {new Set(observations.map(obs => obs.user_id)).size}
+            {new Set(observationsList.map(obs => obs.user_id)).size}
           </div>
           <div className="text-gray-600">Active Contributors</div>
         </div>
@@ -67,7 +70,7 @@ export default function Dashboard() {
         <h2 className="text-2xl font-bold text-gray-900 mb-6">
           Recent Observations
         </h2>
-        {observations.length === 0 ? (
+        {observationsList.length === 0 ? (
           <div className="text-center py-12">
             <div className="text-6xl mb-4">🔬</div>
             <h3 className="text-xl font-medium text-gray-900 mb-2">
@@ -82,7 +85,7 @@ export default function Dashboard() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {observations.map((observation) => (
+            {observationsList.map((observation) => (
               <ObservationCard
                 key={observation.id}
                 observation={observation}
