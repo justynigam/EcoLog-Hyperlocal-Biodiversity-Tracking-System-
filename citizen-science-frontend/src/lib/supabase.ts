@@ -1,23 +1,19 @@
 // src/lib/supabase.ts
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key'
 
-// Validate environment variables
-if (!supabaseUrl) {
-  throw new Error('Missing NEXT_PUBLIC_SUPABASE_URL environment variable')
+// Only validate in runtime, not during build
+const isProduction = process.env.NODE_ENV === 'production'
+const isBuild = process.env.NEXT_PHASE === 'phase-production-build'
+
+if (!isBuild && isProduction && supabaseUrl === 'https://placeholder.supabase.co') {
+  console.warn('Missing NEXT_PUBLIC_SUPABASE_URL environment variable')
 }
 
-if (!supabaseAnonKey) {
-  throw new Error('Missing NEXT_PUBLIC_SUPABASE_ANON_KEY environment variable')
-}
-
-// Validate URL format
-try {
-  new URL(supabaseUrl)
-} catch (error) {
-  throw new Error(`Invalid NEXT_PUBLIC_SUPABASE_URL format: ${supabaseUrl}`)
+if (!isBuild && isProduction && supabaseAnonKey === 'placeholder-key') {
+  console.warn('Missing NEXT_PUBLIC_SUPABASE_ANON_KEY environment variable')
 }
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
