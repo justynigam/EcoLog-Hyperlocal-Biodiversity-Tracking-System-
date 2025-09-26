@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { useGeolocation } from '@/hooks/useGeolocation'
 import { useObservationStore } from '@/store/observationStore'
 import { observationAPI } from '@/lib/api'
-import type { Observation } from '@/lib/api'; // or from your types file
+import type { Observation } from '@/lib/supabase'
 
 
 export default function ObservationForm() {

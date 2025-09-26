@@ -1,15 +1,5 @@
 // src/lib/api.ts
-
-export interface Observation {
-  id: string;
-  user_id: string;
-  species_name: string;
-  photo_url: string | null;
-  latitude: number;
-  longitude: number;
-  notes: string | null;
-  created_at: string;
-}
+import type { Observation } from '@/lib/supabase'
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://127.0.0.1:8000/api';
 
@@ -26,16 +16,7 @@ export const observationAPI = {
   },
 
   // Create a new observation entry on the backend
-  async create(observation: {
-    id: string;
-    user_id: string;
-    species_name: string;
-    photo_url: string | null;
-    latitude: number;
-    longitude: number;
-    notes: string | null;
-    created_at: string;
-  }): Promise<Observation> {
+  async create(observation: Omit<Observation, 'id' | 'created_at'>): Promise<Observation> {
     const response = await fetch(`${API_BASE_URL}/observations/`, {
       method: 'POST',
       headers: {
